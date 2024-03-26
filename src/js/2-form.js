@@ -34,29 +34,21 @@ function getFormInput() {
     
 function handleSubmit(event) {
     event.preventDefault();
-    const emailEl = event.target.elements.email.value;
-    const messageEl = event.target.elements.message.value;
-  console.log({ email: emailEl, message: messageEl });
-
+    const emailEl = event.target.elements.email.value.trim();
+    const messageEl = event.target.elements.message.value.trim();
+  
   if (emailEl=== '' || messageEl === '') {
-    return alert('Please fill in all the fields!');
+    return alert('It is necessary to fill in all fields of the form, information cannot be sent');
   }
-
+console.log({ email: emailEl, message: messageEl });
     console.log("send");
-    event.currentTarget.reset();
+    // event.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
     formData = {};
 form.reset();    
 }
 
 
-// let dataForm = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
-// const { email, message } = form.elements;
-// reloadPage();
 
-// function onInputData(e) {
-//   dataForm = { email: email.value, message: message.value };
-//   localStorage.setItem(LOCAL_KEY, JSON.stringify(dataForm));
-// }
 
 
